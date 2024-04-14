@@ -21,8 +21,8 @@ Also, you should install bun.sh (version 1.0.30 or higher) to start application 
 ### Installation
 
 ```bash
-git clone https://github.com/entsllor/just-auth.git
-cd just-auth
+git clone https://github.com/entsllor/express-auth.git
+cd express-auth
 ```
 
 ### Running in production mode

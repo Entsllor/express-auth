@@ -11,16 +11,16 @@ class AccessTokensRepo implements IAccessTokenRepo<IAccessTokenPayload> {
         });
     }
 
-    verify(token: string, ignoreExpiration: boolean = false) {
-        return jwt.verify(token, appSettings.JWT_PUBLIC_SECRET_KEY, {ignoreExpiration}, (error, decoded: any) => {
+    verify(token: string, ignoreExpiration: boolean = false): IAccessTokenPayload {
+        let payload: IAccessTokenPayload | undefined;
+        jwt.verify(token, appSettings.JWT_PUBLIC_SECRET_KEY, {ignoreExpiration}, (error, decoded: any) => {
             if (error) {
                 throw error;
             }
-            return {
-                sub: decoded.sub,
-                username: decoded.username,
-            } satisfies IAccessTokenPayload;
-        }) as IAccessTokenPayload | undefined;
+            payload = {sub: decoded.sub, username: decoded.username};
+            return payload;
+        });
+        return payload!;
     }
 }
 

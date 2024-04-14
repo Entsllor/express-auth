@@ -3,6 +3,7 @@ import {SignupDto} from "../schemas/users";
 import {IUsersRepo} from "../types/repos/users";
 import {IBaseDbRepo} from "./base";
 import {hashPassword} from "../helpers/passwords";
+import {DeepPartial} from "typeorm";
 
 class UsersDbRepo extends IBaseDbRepo<User> implements IUsersRepo {
     model = User;
@@ -16,7 +17,7 @@ class UsersDbRepo extends IBaseDbRepo<User> implements IUsersRepo {
             ...userData,
             password: await hashPassword(userData.password),
             birthdate: userData.birthdate ? new Date(userData.birthdate) : undefined,
-        });
+        } as DeepPartial<User>);
         return this.repo.save(user);
     }
 

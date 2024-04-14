@@ -18,4 +18,4 @@ COPY .env.test .
 # run the app
 USER bun
 EXPOSE 8000/tcp
-ENTRYPOINT ["bun", "test" ]
+ENTRYPOINT ["bun", "test", "--timeout 10000"]

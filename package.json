@@ -1,5 +1,5 @@
 {
-  "name": "just-auth",
+  "name": "express-auth",
   "version": "1.0.0",
   "type": "module",
   "private": true,
@@ -29,11 +29,11 @@
     "reflect-metadata": "^0.1.13",
     "supertest": "^6.3.3",
     "typeorm": "0.3.17",
-    "typescript": "^5.2.2",
     "uuid": "^9.0.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.0.0",
+    "typescript": "^5.4.5",
+    "@types/bun": "^1.0.12",
     "@faker-js/faker": "^8.3.1",
     "@types/cookie-parser": "^1.4.3",
     "@types/express": "^4.17.17",
